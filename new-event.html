@@ -1,0 +1,532 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apollo Beyond the Lyre</title>
+  <link rel="icon" href="images/sun.png" />
+
+  <!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Bootstrap CSS (optional if already using it) -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #loadingScreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #4a0000;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23780000' fill-opacity='0.6'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        z-index: 9999;
+    }
+    #goldStrip {
+    width: 100%;
+    height: 10px;
+    background-color: #c79f00;
+    position: fixed;
+    top: 100%;
+    left: 0;
+    z-index: 99;
+    }
+    #sentence {
+      font-size: 500;
+    }
+    @media (max-width: 768px){
+      #sentence {
+        font-size: 200;
+      }
+      #loadingScreen{
+        font-size: 1em;
+        margin-top: 0% !important;
+      }
+      #pre-loader-content{
+        margin-top: 0px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div id="loadingScreen">
+        <div id="goldStrip"></div>
+        <div id="pre-loader-content" style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 10 140 60" style="display: block; margin: 0 auto 38px auto; width: 500px; max-width: 98vw;">
+            <defs>
+              <!-- جريدينت دهبي فخم -->
+              <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFD700"/>   <!-- دهبي فاتح -->
+                <stop offset="50%" stop-color="#FFC107"/> <!-- دهبي متوسط -->
+                <stop offset="100%" stop-color="#B8860B"/> <!-- دهبي غامق -->
+              </linearGradient>
+            </defs>
+            <path d="M18.55 13.95V48.8h-6.1V13.95zm12.4-.2v1.9H0v-1.9zm0 1.75v5.25l-.5-.05v-.65q0-1.95-1.2-3.15t-3.15-1.25v-.15zm0-2.65v1.45l-6.1-.55q1.1 0 2.33-.15 1.22-.15 2.27-.35t1.5-.4M12.6 45.15v3.65h-4v-.5h.65q1.3 0 2.22-.92.93-.93.98-2.23zm5.8 0h.15q.05 1.3.98 2.23.92.92 2.22.92h.65v.5h-4zM4.85 15.5v.15Q2.9 15.7 1.7 16.9T.5 20.05v.65l-.5.05V15.5zM0 12.85q.5.2 1.53.4 1.02.2 2.27.35t2.3.15L0 14.3zm44.05.95v35h-6.1v-35zM57.3 46.85l.85 1.95H43.9v-1.95zM55.4 30.6v1.9H43.9v-1.9zm2.35-16.8v1.95H43.9V13.8zm3.05 25.5-2.5 9.5h-9.35l1.8-1.95q2.55 0 4.4-.93 1.85-.92 3.1-2.65 1.25-1.72 2.05-3.97zm-5.4-6.9v4.3h-.5v-.55q0-1.55-1.05-2.6t-2.6-1.05v-.1zm0-6v4.3h-4.15v-.1q1.55-.05 2.6-1.1t1.05-2.6v-.5zm2.35-10.8v5.2h-.5v-.7q0-1.9-1.2-3.13-1.2-1.22-3.2-1.27v-.1zm0-2.7v1.45l-6.1-.55q1.1 0 2.33-.15 1.22-.15 2.27-.35t1.5-.4M38.1 45.15v3.65h-4v-.5h.65q1.3 0 2.23-.92.92-.93.97-2.23zm0-27.7h-.15q-.05-1.3-.97-2.23-.93-.92-2.23-.92h-.65v-.5h4zm44.1-3.65q5.7 0 9.93 2.12 4.22 2.13 6.52 6.08t2.3 9.3-2.3 9.27q-2.3 3.93-6.52 6.08-4.23 2.15-9.93 2.15H70.7l-.05-1.9H81.8q3.85 0 6.63-1.93 2.77-1.92 4.32-5.42t1.55-8.25-1.55-8.25-4.35-5.43q-2.8-1.92-6.6-1.92H70.15v-1.9zm-7.8 0v35h-6.1v-35zm-5.95 31.35v3.65h-4v-.5h.65q1.3 0 2.23-.92.92-.93.97-2.23zm0-27.7h-.15q0-1.3-.95-2.23-.95-.92-2.25-.92h-.6l-.05-.5h4zm42.46-7.79 15.75 24.465h-5.075L105.905 9.66zm-1.19 21.98q-.315.49-.175 1.001.14.504.546.833.399.336.854.336h.455v.35H103v-.35h.49q1.12 0 2.03-.63t1.505-1.435zm4.515-10.255 1.4 1.365-7.56 11.375h-2.73zm5.775 10.255 5.11.14q.56.805 1.505 1.414.945.616 2.03.616h.49v.35h-10.78v-.35h.42q.735 0 1.211-.7.469-.7.014-1.47m-5.845-21.98v.35h-.42q-.455 0-.854.329-.406.336-.525.84-.126.511.154 1.001l-5.075-.105q-.56-.805-1.484-1.435-.931-.63-2.051-.63h-.49v-.35zm11.655 0-8.4 12.425-1.33-1.435 7-10.99zm2.38 0v.35h-.49q-1.085 0-2.009.63-.931.63-1.526 1.435l-2.695.105q.315-.49.175-1.001-.14-.504-.525-.84-.385-.329-.875-.329h-.42v-.35z" 
+              fill="url(#gold-gradient)"/>
+          </svg>
+          <p id="scramble-text" style="
+            color: #FFD700;
+            font-size: 3.2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+            letter-spacing: 3px;
+            text-shadow: 0 0 12px #FFC107, 0 0 24px #B8860B;
+            font-family: 'Cinzel', 'Forum', serif;
+          ">SOMETHING BIG IS RISING HERE</p>
+        </div>
+                </p>
+            </div>
+    </div>
+  <canvas></canvas>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
+<div class="container">
+    <a class="navbar-brand text-uppercase" href="index.html" style="text-decoration: none; overflow: visible;">
+        <div id="navbar-logo" class="tedx" style="min-height:47px; overflow: visible;">
+            <!-- الجزء المتحرك الأول -->
+            <div class="tedx_logo_draw" style="display: none;">
+              <svg viewBox="0 10 140 60" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="a" x1="-.014" y1="17.494" x2="71.142" y2="88.65" gradientTransform="matrix(1.81566 0 0 .55076 5.75 6.625)" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="gold"/>
+                    <stop offset="50%" stop-color="#FFC107"/>
+                    <stop offset="100%" stop-color="#B8860B"/>
+                  </linearGradient></defs>
+                <path d="M18.2 22.275h-7.6q-1.95.05-3.15 1.25t-1.2 3.15v.65l-.5.05v-7.9q.5.2 1.53.4 1.02.2 2.27.35t2.3.15H30.6q1.1 0 2.33-.15 1.22-.15 2.27-.35t1.5-.4v7.9l-.5-.05v-.65q0-1.95-1.2-3.15t-3.15-1.25H24.3v29.5q.05 1.3.98 2.23.92.92 2.22.92h.65v.5h-13.8v-.5H15q1.3 0 2.22-.92.93-.93.98-2.23zm45.3-1.85v1.95m0-.15v5.2H63v-.7q0-1.9-1.2-3.13c-.8-.813-1.876-1.217-3.2-1.27h-8.8v14.9H57q1.55-.05 2.6-1.1t1.05-2.6v-.5h.5v10.3h-.5v-.55q0-1.55-1.05-2.6c-.7-.7-1.56-1.056-2.6-1.05h-7.2v14.35h6.7q2.55 0 4.4-.93a8.4 8.4 0 0 0 3.1-2.65q1.25-1.72 2.05-3.97h.5l-2.5 9.5h-24.2v-.5h.65q1.3 0 2.23-.92c.613-.62.93-1.347.97-2.23v-27.7a3.25 3.25 0 0 0-.97-2.23 3.06 3.06 0 0 0-2.23-.92h-.65v-.5H57.4q1.1 0 2.33-.15 1.22-.15 2.27-.35t1.5-.4m0 0v1.45m10.55 3.1q0-1.3-.95-2.23-.95-.92-2.25-.92h-.6l-.05-.5h17.75q5.7 0 9.93 2.12 4.22 2.13 6.52 6.08t2.3 9.3-2.3 9.27q-2.3 3.93-6.52 6.08-4.23 2.15-9.93 2.15H70.2v-.5h.65q1.3 0 2.23-.92c.613-.62.939-1.355.97-2.23zm6.1 29.45h7.4q3.85 0 6.63-1.93 2.77-1.92 4.32-5.42t1.55-8.25-1.55-8.25-4.35-5.43q-2.8-1.92-6.6-1.92h-7.4zm31.505-37.24h5.005m14.24 22.12a5.2 5.2 0 0 0 1.475 1.414 3.65 3.65 0 0 0 2.03.616h.49v.35h-10.78v-.35h.42q.735 0 1.211-.7c.313-.467.297-.957-.006-1.47l-5.037-7.862-5.233 7.862q-.315.49-.175 1.001.14.504.546.833.399.336.854.336h.455v.35h-8.4v-.35h.49q1.12 0 2.03-.63a6.1 6.1 0 0 0 1.485-1.435l6.804-9.753-6.354-9.917c-.373-.537-.878-1.015-1.494-1.435a3.6 3.6 0 0 0-2.051-.63h-.49v-.35h10.745v.35h-.42q-.455 0-.854.329-.406.336-.525.84c-.084.34-.023.674.164 1.001l4.507 6.984 4.448-6.984c.21-.327.263-.66.17-1.001a1.7 1.7 0 0 0-.525-.84 1.3 1.3 0 0 0-.875-.329h-.42v-.35h8.365v.35h-.49q-1.085 0-2.009.63c-.62.42-1.115.917-1.516 1.435l-6.001 8.886zm-2.06-22.12h2.73"
+                  fill="none" stroke="url(#a)" stroke-width="2" style="stroke:url(#a);stroke-width:1;stroke-linecap:round;stroke-dasharray:none"/>
+              </svg>
+                <span class="tedx_name">Maadi STEM Youth</span>
+            </div>
+            <!-- خط أحمر متحرك رأسي -->
+            <div class="line_and_logo" style="display: flex; align-items: center; overflow: visible;">
+                <div class="tedx_logo_line"
+                    style="display: none; overflow: visible; display:none; position: relative; left: -5px;  top: 18px; transform: translateY(-50%); width: 4px; background: #E62B1E; border-radius: 2px; height: 0; z-index: 2;">
+                </div>
+                <div class="tedx_logo_final"
+                    style="display: flex; position: absolute; align-items: center; overflow: hidden; top: 12px;">
+                    <span class="tedx_logo" style="position: relative; z-index: 3;">TEDx</span>
+                    <span class="tedx_name">Maadi STEM Youth</span>
+                </div>
+            </div>
+            <div class="tedx_info" style="position: fixed; top: 49.5px;">
+                <span class="tedx_info_x">x</span>
+                <span class="tedx_info_text"> = independently organized TED event</span>
+            </div>
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="coming-soon.html">2025 Event</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="previous-events.html">Previous Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div class="background-letters" id="backgroundLetters"></div>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+   <section class="main">
+   
+    <img id="lyre" src="lyrefr.png" alt="Lyre" />
+    <img id="decoration" src="deco.png" alt="Stage Decoration" />
+    
+    <div class="center-text">
+    <h1 id="apollo-text">APOLLO</h1>
+    <h2 id="sub">Beyond the Lyre</h2>
+  </div>
+</section>
+<div id="countdown" class="countdown-apollo"></div>
+  <!-- TEDx background logo -->
+ 
+ 
+     
+  
+
+<div class="stone-container">
+  <div class="stone">
+    <h2 class="stone-title">Mission</h2>
+    <p class="engraved-text">
+      At TEDxMaadi STEM Youth, it is our purpose to ignite minds, provide voice, and shed light on ideas—with the inspiration of Apollo, the Greek god of light, truth, and imagination.
+This year, we celebrate human innovation in all its forms, including art, science, philosophy, and the intersection of these fields.
+Through engaging, inspiring, and informative discussions, we aim to foster positive dialogue within and outside our community.
+TEDxMaadi is dedicated to celebrating the power of storytelling and idea-sharing, lighting the way for spreading ideas of values from Maadi to the world.
+    </p>
+  </div>
+  <div class="stone">
+    <h2 class="stone-title">Vision</h2>
+    <p class="engraved-text">
+      At TEDx Maadi STEM Youth, we envision a future where bold ideas transcend boundaries, where every voice does not merely have an echo, but a source of inspiration. A stage that conflates persuasion with guidance and gathers those who decode silence.
+Our vision is to bring the light to the world, inspired by the shadowed lines of code, Greek mythology, and the fire that guided ancient journeys into the unknown. From ancient minds to modern ones, we strive to be a stage for inspiring youth and helping them find their selves and their own potentials.
+
+    </p>
+  </div>
+</div>
+
+
+
+   <div class="center-heading-wrapper">
+  
+   <h2>Get your agenda here</h2>
+  <button onclick="location.href='agenda.pdf'" class="cta-btn" target="_blank">📄 View Agenda</button>
+
+</div>
+    
+<section class="sponsors-section" id="sponsors">
+  <h2>Sponsors</h2>
+  <div class="sponsor-grid">
+    <div class="sponsor-card" style="background-image: url(./images/speakers/TGI.JPG);">
+    </div>
+    <div class="sponsor-card" style="background-image: url(./images/speakers/BNS-Physics.JPG);">
+    </div>
+    <div class="sponsor-card" style="background-image: url(./images/speakers/astro.jpeg);">
+    </div>
+    <div class="sponsor-card" style="background-image: url(./images/speakers/HACKSY\ CS\ Club_20250909_184925_0000.png);">
+    </div>
+    <div class="sponsor-card" style="background-image: url(./images/speakers/IMG_2685.PNG); background-color: white;" >
+    </div>
+    <!-- <div class="sponsor-card">
+      <img src="image-removebg-preview (9).png" alt="Sponsor">
+    </div>
+  </div> -->
+</section>
+
+<section class="speakers-section">
+  <h2>Our Speakers</h2>
+  <div class="carousel-container">
+    <button class="scroll-btn left">&#8592;</button>
+    <div class="carousel" id="carousel">
+      <div class="card">
+        <img src="./images/speakers/Ahmed-tahseen.JPG" alt="Speaker 1">
+        <h3>Ahmed Tahseen</h3>
+        <p>History Content Creator</p>
+      </div>
+      <div class="card">
+        <img src="./images/speakers/Amr-hadid.jpeg" alt="Speaker 2">
+        <h3>Amr Hadid</h3>
+        <p>    </p>
+      </div>
+      <div class="card">
+        <img src="./images/speakers/Hany-Shaker.jpeg" alt="Speaker 3">
+        <h3>Hany Shaker</h3>
+        <p>Founder of Dr Potter Academy </p>
+      </div>
+      <div class="card">
+        <img src="./images/speakers/Eng Ahmed Yassin.jpeg" alt="Speaker 4">
+        <h3>Eng. Ahmed Yassin</h3>
+        <p>       </p>
+      </div>
+      <div class="card">
+        <img src="./images/speakers/Anas Elsharnoby.jpeg" alt="Speaker 5">
+        <h3>Dr. Anas Elsharnoby</h3>
+        <p>- Cardiologist at the Medical National Institute.</p>
+      </div>
+      <div class="card">
+        <img src="./images/speakers/eslam-hamada.jpeg" alt="Speaker 6">
+        <h3>Eslam Hamada</h3>
+        <p>     </p>
+      </div>
+      <div class="card">
+        <img src="./images/speakers/Eslam Salheen.jpeg" alt="Speaker 6">
+        <h3>Eslam Salheen</h3>
+        <p>Content creator of art recycling</p>
+      </div>
+    </div>
+    <button class="scroll-btn right">&#8594;</button>
+  </div>
+</section>
+
+
+ <h2 class="ticket interactive-text">Book Your Ticket Here</h2>
+
+<div class="cta-wrapper">
+  <div class="cta-option">
+    <span class="cta-label">Reserve a Ticket Just for You</span>
+    <button onclick="location.href='individual.html'" class="cta-btn">Book Solo Seat</button>
+  </div>
+
+  <div class="cta-option">
+    <span class="cta-label">Save Big with a Group of 5</span>
+    <button onclick="location.href='individual.html'" class="cta-btn">Book Group Offer</button>
+  </div>
+</div>
+
+    
+  
+ <!-- LOCATION SECTION -->
+<div class="location-section">
+  <div class="location-content">
+    <h2 class="section-title">
+      <span class="location-icon">📍</span> Location
+    </h2>
+  </div>
+
+  <div class="map-wrapper">
+  <iframe
+    src="https://www.google.com/maps?q=Cultural+Creative+Artistic+Center+6th+of+October+Giza+Egypt&output=embed" 
+    
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+</div>
+
+      <!-- text -->
+     
+
+  
+  
+   
+  
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+  <!-- Link JS -->
+  <script src="main.js"></script>
+
+   <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row d-flex justify-content-between align-items-start">
+
+        <!-- Logo & Info -->
+        <div class="col-12 col-md-4 mb-3 mb-md-0 text-center text-md-left">
+          <div id="footer-logo" class="tedx_footer1">
+              <span class="tedx_footer">TEDx</span>
+              <span class="tedx_logo_footer">Maadi STEM Youth</span>
+              <div class="tedx_info_footer">
+                  <span class="tedx_info_x_footer">x</span>
+                  <span class="tedx_info_x_text_footer"> = independently organized TED event</span>
+              </div>
+          </div>
+        </div>
+
+        <!-- Social Media -->
+        <div class="col-12 col-md-1 mb-3 mb-md-0 text-center">
+          <ul class="list-unstyled">
+            <li>
+              <a href="https://www.facebook.com/TEDxYouthMaadiSTEM/" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/tedx.maadi/" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:tedx.maadistem@gmail.com">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="col-12 col-md-7 text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item d-block d-md-inline"><a href="index.html">Home</a></li>
+            <li class="list-inline-item d-block d-md-inline"><a href="coming-soon.html">2025 Event</a></li>
+            <li class="list-inline-item d-block d-md-inline"><a href="previous-events.html">Previous Events</a></li>
+            <li class="list-inline-item d-block d-md-inline"><a href="contact.html">About Us</a></li>
+          </ul>
+          <hr>
+          <div class="rights mt-3">
+            &copy; <span id="demo"></span> All Rights Reserved | TEDx Maadi STEM Youth
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+  </div>
+  </div>
+    <script src="aboutjs/gsap.min.js"></script>
+    <script src="aboutjs/ScrollTrigger.min.js"></script>
+    <script src="aboutjs/ScrollSmoother.min.js"></script>
+    <script src="aboutjs/DrawSVGPlugin.min.js"></script>
+    <script src="aboutjs/dat.gui.min.js"></script>
+    <script src="aboutjs/script.js"></script>
+    <script src="aboutjs/ScrambleTextPlugin.min.js"></script>
+    <script>
+      //Dynamic Year//
+      var d = new Date();
+      document.getElementById("demo").innerHTML = d.getUTCFullYear();
+      //End of Dynamic Year//
+    </script>
+    <script>
+        window.addEventListener('scroll', function() {
+          if(window.scrollY > 10) {
+            document.getElementById('navbar').classList.add('scrolled');
+          } else {
+            document.getElementById('navbar').classList.remove('scrolled');
+          }
+        });
+    </script>
+    <script>
+        // Ensure DrawSVGPlugin is registered
+        gsap.registerPlugin(DrawSVGPlugin);
+        gsap.registerPlugin(ScrambleTextPlugin)
+        gsap.set(".tedx_logo_final", { display: "flex" });
+        gsap.set(".tedx_logo_line", { display: "none", height: 0, opacity: 1 });
+        gsap.set(".tedx_logo_draw", { display: "none", opacity: 1 });
+        gsap.set(".tedx_logo", { x: 0, opacity: 1 });
+        gsap.set(".tedx_name", { display: "flex" });
+        gsap.set(".loading_logo", { display: "flex", opacity: 1 });
+        function hideLoadingScreen() {
+            ScrollSmoother.get().paused(false);
+            gsap.to("#loadingScreen", {
+                duration: 1.2,
+                y: "-120%",
+                ease: "power2.inOut",
+                onComplete: () => {
+                    document.getElementById("loadingScreen").style.display = "none";
+                }
+            });
+        }
+        function animateLogo() {
+      // لا يوجد أنيميشن رسم للوجو، فقط سكرامبل تيكست
+    }
+    // Scramble Text Animation
+    gsap.registerPlugin(ScrambleTextPlugin);
+    gsap.to("#scramble-text", {
+  duration: 3.5,
+      scrambleText: {
+        text: "SOMETHING BIG IS RISING HERE",
+        chars: "upperCase",
+        revealDelay: 0.5,
+        tweenLength: false
+      },
+      onComplete: function() {
+        setTimeout(hideLoadingScreen, 1000);
+      }
+    });
+    </script>
+    <script>
+        // Ensure DrawSVGPlugin is registered
+        gsap.registerPlugin(DrawSVGPlugin);
+        gsap.registerPlugin(ScrambleTextPlugin) 
+
+        const tl = gsap.timeline({ repeat: -1, defaults: { duration: 5, ease: "power1.inOut" } });
+
+        gsap.set(".tedx_logo_final", { display: "flex" });
+        gsap.set(".tedx_logo_line", { display: "none", height: 0, opacity: 1 });
+        gsap.set(".tedx_logo_draw", { display: "none", opacity: 1 });
+        gsap.set(".tedx_logo", { x: 0, opacity: 1 });
+        gsap.set(".tedx_name", { display: "flex" });
+
+        // 1. Start with static logo and line
+        tl.set(".tedx_logo_final", { display: "flex" })
+            .set(".tedx_logo_line", { display: "none", height: "30px", opacity: 1 })
+            .set(".tedx_logo_draw", { opacity: 1, display: "none" })
+            .set(".tedx_name", { display: "flex" })
+            // 3. Slide in the TEDx text only from behind the line (not Maadi STEM Youth)
+            .set(".tedx_logo_final", { display: "flex" })
+            .set(".tedx_name", { display: "flex" })
+            .set(".tedx_name", { display: "flex" })
+            .to(".tedx_logo", { duration: 0.8, x: 0, opacity: 1 }, ">")
+            .to({}, { duration: 0.8 })
+            // 4. Keep the red line visible while static logo is present
+            // 5. Hold static logo for 3.5s
+            .to(".tedx_logo_line", { duration: 0.4, height: 0, ease: "power1.in" }, "<")
+            .to({}, { duration: 7 })
+            .to(".tedx_logo_line", { display: "block", duration: 0.4, height: "30px" }, ">")
+            // 6. Animate TEDx text out to the left, fade out, and then hide static logo and red line
+            .to(".tedx_logo", { duration: 0.8, x: -90, opacity: 1 }, ">")
+            .to({}, { duration: 0.8 })
+            .to(".tedx_logo_line", { duration: 0.4, height: 0, ease: "power1.in" }, "<")
+            .set(".tedx_logo_final", { display: "none" })
+            .set(".tedx_logo_line", { display: "none", height: 0, opacity: 1 })
+            .set(".tedx_logo_draw", { display: "flex" })
+            // 7. Show and animate SVG draw
+            .from(".tedx_logo_draw svg path", { duration: 2.5, drawSVG: "0% 0%" })
+            .to({}, { duration: 7 })
+            .to(".tedx_logo_draw svg path", { duration: 1, drawSVG: "100% 100%" })
+            // 8. Wait, then reset
+            .set(".tedx_logo_draw", { display: "none" })
+            .set(".tedx_logo_final", { display: "flex" })
+            .to(".tedx_logo_line", { display: "block", duration: 0.4, height: "30px" }, ">")
+            .to(".tedx_logo", { duration: 0.8, x: 0, opacity: 1 }, ">")
+            .to({}, { duration: 0.8 })
+            .to(".tedx_logo_line", { duration: 0.4, height: 0, ease: "power1.in" }, "<")
+            ;
+    </script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+        ScrollSmoother.create({
+            wrapper: "#smooth-wrapper",
+            content: "#smooth-content",
+            smooth: 1.5,
+            effects: true
+        });
+        ScrollSmoother.get().paused(true);
+    </script>
+    <script>
+        gsap.to("#scrollProgressBar", {
+            width: "100%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#smooth-content",
+                start:() => "top top",
+                end: () => "bottom bottom",
+                scrub: true
+            }
+        });
+    </script>
+    <script>
+        import { SmoothCursor } from "@/components/magicui/smooth-cursor";
+
+        export function SmoothCursorDemo() {
+          return (
+            <>
+            </>
+          );
+        }
+        const defaultSpringConfig = {
+  damping: 45,
+  stiffness: 400,
+  mass: 1,
+  restDelta: 0.001,
+};
+    </script>
+</body>
+
+</html>
+
