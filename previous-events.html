@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- Mirrored from www.tedxyouthmaadistem.com/previous-events.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 Jun 2025 14:08:20 GMT -->
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <title>Events | TEDx Maadi STEM Youth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | TEDxMaadiSTEM</title>
     <link rel="canonical" href="previous-events.html" />
     <link rel="icon" href="images/icon.png" />
     <link rel="stylesheet" href="sass/base/main.css">
@@ -12,59 +14,147 @@
     <link rel="stylesheet" href="sass/base/normalize.css">
     <link rel="stylesheet" href="sass/layout/bootstrap-grid.css">
     <link rel="stylesheet" href="bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+
+    <style>
+        body {
+            background-color: #000;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+        }
+        canvas {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .main-content {
+            flex: 1;
+            padding: 30px 0;
+
+        }
+
+        h2 {
+            margin: 0px !important;
+        }
+
+        .season-2024 {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            margin: 30px;
+        }
+
+        .info-text {
+            width: 440px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        }
+
+        .event-images {
+            width: 620px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        .event-images img {
+            width: 590px;
+        }
+
+        .event-name {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 700;
+            font-size: 35px;
+        }
+
+        footer {
+            /* position: fixed; */
+            position: fixed;
+            width: 100%;
+            bottom: 0 !important;
+            left: 0 !important;
+            padding: 1em !important;
+            z-index: 1000 !important;
+        }
+
+        #banner {
+            min-height: 100vh;
+            /* fills at least the whole screen */
+            margin-top: 100px;
+            /* height of navbar to prevent overlap */
+            padding-bottom: 500px;
+            display: block;
+            overflow: hidden;
+        }
+
+        .speakers {
+            font-weight: 600;
+            font-size: 22px;
+            color: #FF2B06;
+        }
+
+        .speakers-info {
+            width: 1000px !important;
+        }
+
+        @media screen and (max-width: 768px) {
+            .season-2024 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .info-text {
+                width: 90%;
+                text-align: center;
+                order: 1;
+            }
+
+            .event-images {
+                width: 90%;
+                padding: 20px 0;
+                margin-top: 10px;
+                order: 2;
+            }
+
+            .event-name {
+                font-size: 28px;
+            }
+
+            .date {
+                font-size: 16px;
+            }
+
+            .speakers {
+                font-size: 18px;
+            }
+            .speakers-info{
+                width: 380px !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <!--The begin of the body-->
     <!-- start nav bar  -->
-    <canvas></canvas>
-    <div id="middle-layer" style="  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.5); z-index: -1; pointer-events: none;"></div>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolled" id="navbar">
         <div class="container">
-            <a class="navbar-brand text-uppercase" href="index.html" style="text-decoration: none; overflow: visible;">
-                <div id="navbar-logo" class="tedx" style="min-height:47px; overflow: visible;">
-
-                    <!-- الجزء المتحرك الأول -->
-                    <div class="tedx_logo_draw" style="display: none;">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 150 47" fill="none" stroke-width="2"
-                            stroke="url(#grad-1)">
-                            <defs>
-                                <linearGradient id="grad-1" x1="0" y1="0" x2="100" y2="100"
-                                    gradientUnits="userSpaceOnUse">
-                                    <stop offset="0.2" stop-color="rgb(255, 135, 9)" />
-                                    <stop offset="0.8" stop-color="rgb(247, 189, 248)" />
-                                </linearGradient>
-                            </defs>
-                            <path
-                                d="M13.909 12.994h-11.909v-10.892h36.897v10.892h-11.904v31.602h-13.084v-31.602zM40.931 2.102h35.817v10.892h-22.725v5.295h22.725v10.121h-22.725v5.295h22.73v10.891h-35.822v-42.494zM78.953 2.102h21.484c14.16 0 19.168 10.475 19.168 21.185 0 13.039-6.904 21.309-21.725 21.309h-18.927v-42.494zm13.09 31.603h5.121c8.156 0 9.348-6.608 9.348-10.6 0-2.673-.836-10.111-10.301-10.111h-4.168v20.711zM138.416 28.22l-3.992-6.622-3.895 6.622h-9.594l9.107-13.39-8.77-12.809h9.596l3.555 6.332 3.654-6.332h9.594l-8.768 12.809 9.107 13.39h-9.594z" />
-                        </svg>
-                        <span class="tedx_name">Maadi STEM Youth</span>
-                    </div>
-                    <!-- خط أحمر متحرك رأسي -->
-                    <div class="line_and_logo" style="display: flex; align-items: center; overflow: visible;">
-                        <div class="tedx_logo_line"
-                            style="display: none; overflow: visible; display:none; position: relative; left: -5px;  top: 18px; transform: translateY(-50%); width: 4px; background: #E62B1E; border-radius: 2px; height: 0; z-index: 2;">
-                        </div>
-                        <div class="tedx_logo_final"
-                            style="display: flex; position: absolute; align-items: center; overflow: hidden; top: 12px;">
-                            <span class="tedx_logo" style="position: relative; z-index: 3;">TEDx</span>
-                            <span class="tedx_name">Maadi STEM Youth</span>
-                        </div>
-                    </div>
-                    <div class="tedx_info" style="position: fixed; top: 49.5px;">
-                        <span class="tedx_info_x">x</span>
-                        <span class="tedx_info_text"> = independently organized TED event</span>
-                    </div>
-
-                </div>
+            <a class="navbar-brand text-uppercase" href="index.html">
+                <img id="navbar-logo" src="images/TEDxLogo.png" width="225" height="60" class="d-inline-block align-top"
+                    alt="TEDx logo" loading="lazy">
             </a>
-
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse_navbar_collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">home</a>
@@ -73,7 +163,8 @@
                         <a class="nav-link" href="./coming soon.html">2025 Event</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="previous-events.html">previous events <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="previous-events.html">previous events <span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">about us</a>
@@ -87,11 +178,11 @@
     </nav>
     <!-- end nav bar -->
 
-    <div id="smooth-wrapper">
-    <div id="smooth-content" style="padding: 0%;">
+        <canvas id="canvas"></canvas>
 
+    <main class="main-content">
 
-        <div class="previous_text">
+        <div class="banner pb-5 pt-5" style="background-color: #000;" id="banner">
             <div class="text">
                 <h2><span>Previous</span> Events</h2>
                 <span class="rectangle"></span>
@@ -279,121 +370,138 @@
                         </div>
                     </div>
                 </div>
+
+
+    </main>
+
     </div>
     </div>
+
+    <!-- <div class="description">
+                <p class="mt-3">The first TEDxYouth@MaadiSTEM was held on 25th of October 2019 in 57357 hospital, with the help of 60 student volunteers who dedicated their time and hard work to the uprising of our first ever event. Due to each and every single volunteer’s huge efforts and our marvelous sponsors and partnerships, the first event was tremendously successful. 
+                </p>
+                <p>The event’s theme was “Assemble!”, inspired by Avengers: Endgame, which encompassed the idea of believing that the top of our glories comes from our deepest desires. In light of that, we had 9 insightful speakers who each talked about their incredible journeys of struggle and how they tackled it to achieve their current position. In addition, there was 3 astonishing performances by talented musicians and singers and venues for breakfast and lunch. Overall, our audience were all thrilled with the event and the amount of inspiration the speakers unleashed upon them!</p>    
+            </div> -->
+    <!-- </div> -->
+    <!-- <div class="wrap">
+            <img alt="event image" class="img" src="images/event.png">
+        </div>  -->
+
+    <!-- </div> -->
+
+
+
+
     <!--start footer section-->
-    <footer  style="margin-top: 140px;">
+
+    <!--     
+    <div id="pageFooter" class="fixed-footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <div id="footer-logo" class="tedx_footer1">
-                        <span class="tedx_footer">TEDx</span>
-                        <span class="tedx_logo_footer">Maadi STEM Youth</span>
-                        <div class="tedx_info_footer">
-                            <span class="tedx_info_x_footer">x</span>
-                            <span class="tedx_info_x_text_footer"> = independently organized TED event</span>
-                        </div>
-                    </div>
+                    <img src="images/TEDxLogo.png" class="img-fluid">
                 </div>
                 <div class="col-md-1 text-center">
                     <ul>
                         <li><a href="https://www.facebook.com/TEDxYouthMaadiSTEM/"><i
                                     class="fab fa-fw fa-facebook-square"></i></a></li>
-                        <li><a href="https://www.instagram.com/tedx.maadi/"><i
-                                    class="fab fa-fw fa-instagram"></i></a></li>
-                        <li><a href="mailto:tedx.maadistem@gmail.com"><i
+                        <li><i class="fab fa-fw fa-instagram"></i></li>
+                        <li><a
+                                href="cdn-cgi/l/email-protection.html#94e0f1f0ecbaf9f5f5f0fde7e0f1f9d4f3f9f5fdf8baf7fbf9"><i
                                     class="fas fa-fw fa-envelope-open"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-md-7 text-center">
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">2025 event</a></li>
+                        <li><a href="about.html">Our Team</a></li>
                         <li><a href="previous-events.html">Previous Events</a></li>
-                        <li><a href="contact.html">About US</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="contact.html">Contact US</a></li>
                     </ul>
                     <hr>
                     <div class="rights">
-                        &copy; <span id="demo"></span> All Rights Reserved | TEDx Maadi STEM Youth
+                        &copy; 2020 All Rights Reserved | TEDxYouthMaadiSTEM
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
+
 
     <!-- end footer -->
     <!--JavaScript Files-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+
     <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="jquery-3.5.1.js"></script>
     <script src="bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="aboutjs/gsap.min.js"></script>
-    <!--<script src="aboutjs/ScrollTrigger.min.js"></script>-->
-    <script src="aboutjs/ScrollSmoother.min.js"></script>
-    <script src="aboutjs/DrawSVGPlugin.min.js"></script>
-    <script src="aboutjs/dat.gui.min.js"></script>
-    <script src="aboutjs/script.js"></script>
+
     <script>
-        // Ensure DrawSVGPlugin is registered
-        gsap.registerPlugin(DrawSVGPlugin);
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
 
-        const tl = gsap.timeline({ repeat: -1, defaults: { duration: 5, ease: "power1.inOut" } });
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-        gsap.set(".tedx_logo_final", { display: "flex" });
-        gsap.set(".tedx_logo_line", { display: "none", height: 0, opacity: 1 });
-        gsap.set(".tedx_logo_draw", { display: "none", opacity: 1 });
-        gsap.set(".tedx_logo", { x: 0, opacity: 1 });
-        gsap.set(".tedx_name", { display: "flex" });
-
-        // 1. Start with static logo and line
-        tl.set(".tedx_logo_final", { display: "flex" })
-            .set(".tedx_logo_line", { display: "none", height: "30px", opacity: 1 })
-            .set(".tedx_logo_draw", { opacity: 1, display: "none" })
-            .set(".tedx_name", { display: "flex" })
-            // 3. Slide in the TEDx text only from behind the line (not Maadi STEM Youth)
-            .set(".tedx_logo_final", { display: "flex" })
-            .set(".tedx_name", { display: "flex" })
-            .set(".tedx_name", { display: "flex" })
-            .to(".tedx_logo", { duration: 0.8, x: 0, opacity: 1 }, ">")
-            .to({}, { duration: 0.8 })
-            // 4. Keep the red line visible while static logo is present
-            // 5. Hold static logo for 3.5s
-            .to(".tedx_logo_line", { duration: 0.4, height: 0, ease: "power1.in" }, "<")
-            .to({}, { duration: 7 })
-            .to(".tedx_logo_line", { display: "block", duration: 0.4, height: "30px" }, ">")
-            // 6. Animate TEDx text out to the left, fade out, and then hide static logo and red line
-            .to(".tedx_logo", { duration: 0.8, x: -90, opacity: 1 }, ">")
-            .to({}, { duration: 0.8 })
-            .to(".tedx_logo_line", { duration: 0.4, height: 0, ease: "power1.in" }, "<")
-            .set(".tedx_logo_final", { display: "none" })
-            .set(".tedx_logo_line", { display: "none", height: 0, opacity: 1 })
-            .set(".tedx_logo_draw", { display: "flex" })
-            // 7. Show and animate SVG draw
-            .from(".tedx_logo_draw svg path", { duration: 2.5, drawSVG: "0% 0%" })
-            .to({}, { duration: 7 })
-            .to(".tedx_logo_draw svg path", { duration: 1, drawSVG: "100% 100%" })
-            // 8. Wait, then reset
-            .set(".tedx_logo_draw", { display: "none" })
-            .set(".tedx_logo_final", { display: "flex" })
-            .to(".tedx_logo_line", { display: "block", duration: 0.4, height: "30px" }, ">")
-            .to(".tedx_logo", { duration: 0.8, x: 0, opacity: 1 }, ">")
-            .to({}, { duration: 0.8 })
-            .to(".tedx_logo_line", { duration: 0.4, height: 0, ease: "power1.in" }, "<")
-            ;
-    </script>
-    <script>
-        gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-
-        ScrollSmoother.create({
-            wrapper: "#smooth-wrapper",
-            content: "#smooth-content",
-            smooth: 1.5,
-            effects: true
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         });
+
+        document.addEventListener('mousemove', (e) => {
+            for (let i = 0; i < 3; i++) {
+                particles.push({
+                    x: e.clientX,
+                    y: e.clientY,
+                    size: Math.random() * 1 + 0.3, // → size between 0.3 and 1.3
+                    speedX: (Math.random() - 0.5) * 1,
+                    speedY: (Math.random() - 0.5) * 1,
+                    life: 1
+                });
+            }
+        });
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((p, i) => {
+                p.x += p.speedX;
+                p.y += p.speedY;
+                p.life -= 0.015;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+
+                ctx.fillStyle = `rgba(255,255,255,${p.life})`;
+
+                // ✨ Add glow effect
+                ctx.shadowColor = 'rgba(255,255,255,0.7)';
+                ctx.shadowBlur = 10;
+
+                ctx.fill();
+
+                if (p.life <= 0) {
+                    particles.splice(i, 1);
+                }
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
     </script>
+
+    
+
+
     <!--End of JavaScript Files-->
     <!--The end of the body-->
-    </div>
-    </div>
 </body>
+
+<!-- Mirrored from www.tedxyouthmaadistem.com/previous-events.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 Jun 2025 14:08:20 GMT -->
+
 </html>
